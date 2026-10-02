@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const SITE="https://photonicsetfs.com";
-const GA_ID="";   // GA4 measurement ID for PhotonicsETFs (e.g. "G-XXXXXXX"). Leave blank to disable.
+const GA_ID="G-2Q61DCF15V";   // GA4 measurement ID for PhotonicsETFs (e.g. "G-XXXXXXX"). Leave blank to disable.
 const SHEET="https://docs.google.com/spreadsheets/d/e/2PACX-1vRnQq9DFzVp4SUEZJLRPl1RinG_GASmoy6EjZk1895Zb-6GGroUiMevt4KzjyeiIxDsA0WFSQa9fMD1/pub?gid=0&single=true&output=csv";
 const EMAIL="Business@TopDividendETFs.com";
 const PRO="https://topdividendetfspro.com/";
