@@ -1,0 +1,45 @@
+name: Refresh data and build site
+
+on:
+  schedule:
+    - cron: "37 11 * * *"   # daily, ~7:37am ET
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "scripts/**"
+      - "assets/**"
+      - "data/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Pull the latest fund data from the Google Sheet
+        run: |
+          set -e
+          curl -sSL --retry 3 -m 60 "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnQq9DFzVp4SUEZJLRPl1RinG_GASmoy6EjZk1895Zb-6GGroUiMevt4KzjyeiIxDsA0WFSQa9fMD1/pub?gid=0&single=true&output=csv" -o /tmp/funds.csv
+          if head -1 /tmp/funds.csv | grep -qi 'ticker\|symbol'; then mv /tmp/funds.csv data/funds.csv; echo "updated funds.csv"; else echo "::warning::sheet did not return CSV, keeping previous snapshot"; fi
+      - name: Build site
+        run: node scripts/build.mjs
+      - name: Commit
+        run: |
+          git config user.name "photonicsetfs-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Daily data refresh and rebuild [skip ci]"
+          git pull --rebase origin main || true
+          git push
