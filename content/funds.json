@@ -1,0 +1,45 @@
+{
+ "_note": "Plain-English profiles for each fund. Live numbers (AUM, fee, inception) come from the Google Sheet. Keep these factual and update when a fund changes strategy.",
+ "FOTO": {
+  "style": "Actively managed",
+  "about": "The Tuttle Capital Pure Play Photonics ETF targets companies whose business is built around photonics: optical components, lasers, optical networking gear and the manufacturers behind them. Recent holdings have included names such as Lumentum, Coherent, Ciena, IPG Photonics and Fabrinet.",
+  "watch": "FOTO gets part of its exposure through total return swaps and holds a meaningful slice of cash and Treasury bills alongside those swaps, so its holdings list looks different from a plain stock basket. Check the issuer's latest holdings file to see how exposure is split between shares and swaps.",
+  "source": "https://www.tuttlecap.com/"
+ },
+ "LYTE": {
+  "style": "Actively managed",
+  "about": "The Roundhill Photonics & Optics ETF focuses on the optical side of the AI infrastructure build: optical interconnects, lasers and photonic chips that move data with light inside AI data centers. At launch its top holdings included Lumentum, Coherent, Ciena and Fabrinet, plus China-listed optical module makers such as Eoptolink and Zhongji Innolight.",
+  "watch": "A concentrated top ten and a large weight in China-listed optical module makers mean LYTE can move very differently from a broad semiconductor fund. Position sizes can change quickly in an actively managed fund.",
+  "source": "https://www.roundhillinvestments.com/"
+ },
+ "LAZR": {
+  "style": "Actively managed",
+  "about": "The Tema Photonics & Optical ETF invests in global photonics and optical technology companies tied to AI data movement, including optical interconnect, semiconductor technology and related equipment and materials. Tema launched it with research input from semiconductor analysis firm SemiAnalysis.",
+  "watch": "LAZR has also held a position in privately held AI company Anthropic, which is unusual for an ETF. Private positions are valued differently from listed stocks and can be harder to trade, so read the prospectus on how they are handled.",
+  "source": "https://temaetfs.com/lazr"
+ },
+ "LUMA": {
+  "style": "Actively managed",
+  "about": "The KraneShares Photonic and Optical ETF targets public and private companies worldwide that build optical interconnects, transceivers, fiber-optic cable and other light-based infrastructure for AI networking.",
+  "watch": "LUMA can hold private companies, IPOs and derivatives, and it carries one of the higher expense ratios in the group. That flexibility cuts both ways, so it is worth reading how the fund values and sizes its private positions.",
+  "source": "https://kraneshares.com/etf/luma/"
+ },
+ "PHOX": {
+  "style": "Index (passive)",
+  "about": "The Aura AI Photonics ETF tracks the VettaFi AI Photonics Index, a basket of roughly 25 global companies involved in generating, transmitting and processing data with light for AI computing: lasers, transceivers, photonic integrated circuits and specialty materials such as indium phosphide.",
+  "watch": "As an index fund, PHOX follows set rules rather than a manager's calls, which makes it easier to know what you own. It is still a small, non-diversified, single-theme fund, so expect big swings.",
+  "source": "https://www.auraetfs.com/"
+ },
+ "EUV": {
+  "style": "Actively managed",
+  "about": "The Corgi Lithography & Semiconductor Photonics ETF takes a wider angle on photonics, centered on lithography and chipmaking: the light-based tools that print chips, the equipment makers around them and the foundries that use them. Large positions have included ASML, TSMC, Applied Materials, Lam Research and KLA.",
+  "watch": "Because it leans on large semiconductor equipment and foundry names, EUV behaves more like a chip-equipment fund than a pure optical networking fund. That can make it steadier than the pure plays, but it is a different bet.",
+  "source": "https://corgiinvest.com/euv"
+ },
+ "EUVX": {
+  "style": "2x daily leveraged",
+  "about": "The Corgi Lithography & Semiconductor Photonics 2x Daily ETF aims for twice the daily move of its lithography and semiconductor photonics strategy.",
+  "watch": "Leveraged ETFs reset every day. Over periods longer than a day, returns can differ a lot from 2x the underlying move, especially in choppy markets. These are trading tools, not long-term holdings for most investors.",
+  "source": "https://corgifunds.com/euvx"
+ }
+}
