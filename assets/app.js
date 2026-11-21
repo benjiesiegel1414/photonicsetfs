@@ -12,7 +12,45 @@ var rf=D.getElementById("railFill");
 if(rf)addEventListener("scroll",function(){var h=D.documentElement.scrollHeight-innerHeight;rf.style.width=(h>0?scrollY/h*100:0)+"%";},{passive:true});
 /* burger */
 var bg=D.getElementById("burger"),nv=D.getElementById("nav");
-if(bg&&nv){bg.addEventListener("click",function(){var o=nv.classList.toggle("open");bg.setAttribute("aria-expanded",String(o));bg.textContent=o?"✕":"☰";});}
+if(bg&&nv){bg.addEventListener("click",function(){var hd=D.querySelector("header.site");if(hd)D.documentElement.style.setProperty("--hh",hd.getBoundingClientRect().bottom+"px");var o=nv.classList.toggle("open");D.body.style.overflow=o?"hidden":"";bg.setAttribute("aria-expanded",String(o));bg.textContent=o?"✕":"☰";});
+  nv.addEventListener("click",function(e){if(e.target.closest("a")&&nv.classList.contains("open")){nv.classList.remove("open");D.body.style.overflow="";bg.setAttribute("aria-expanded","false");bg.textContent="☰";}});}
+/* copy buttons */
+D.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-copy]");if(!b)return;var v=b.getAttribute("data-copy"),done=function(){var t=b.textContent;b.textContent="Copied";setTimeout(function(){b.textContent=t;},1600);};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(done,function(){});else{var ta=D.createElement("textarea");ta.value=v;D.body.appendChild(ta);ta.select();try{D.execCommand("copy");done();}catch(x){}D.body.removeChild(ta);}});
+
+/* ---------- site search (predictive) ---------- */
+(function(){var q=D.getElementById("sq"),dd=D.getElementById("sdd");if(!q||!dd)return;
+  var IDX=null,loading=null,sel=-1,items=[];
+  function load(){if(IDX)return Promise.resolve(IDX);if(!loading)loading=fetch("/assets/search.json").then(function(r){return r.json();}).then(function(j){j.forEach(function(e){e._t=e.t.toLowerCase().replace(/\$/g,"");e._k=(e.t+" "+(e.s||"")+" "+(e.k||"")).toLowerCase();});IDX=j;return j;}).catch(function(){IDX=[];return IDX;});return loading;}
+  function h(x){return String(x==null?"":x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function hl(t,w){var out=h(t);w.forEach(function(x){if(x.length<2)return;var i=out.toLowerCase().indexOf(x);if(i>-1&&out.slice(0,i).lastIndexOf("<")<=out.slice(0,i).lastIndexOf(">"))out=out.slice(0,i)+"<mark>"+out.slice(i,i+x.length)+"</mark>"+out.slice(i+x.length);});return out;}
+  var GW={ETF:40,Compare:8,Guide:14,Stock:12,Glossary:6,Page:4};
+  function score(e,raw,w){var sc=0,t=e._t;if(t===raw)sc+=200;else if(t.indexOf(raw)===0)sc+=120;else if(t.indexOf(raw)>-1)sc+=60;
+    for(var i=0;i<w.length;i++){var x=w[i],ti=t.indexOf(x);if(ti===0||(ti>0&&/[\s(]/.test(t[ti-1])))sc+=30;else if(ti>-1)sc+=14;else if(e._k.indexOf(" "+x)>-1||e._k.indexOf(x)===0)sc+=9;else if(e._k.indexOf(x)>-1)sc+=4;else return 0;}
+    return sc?sc+(GW[e.g]||0):0;}
+  function row(e,w){return '<a role="option" href="'+e.u+'"><span class="sk">'+e.g+'</span><span class="st"><b>'+hl(e.t,w)+'</b>'+(e.s?'<span>'+h(e.s)+'</span>':'')+'</span>'+(e.x?'<span class="sx">'+h(e.x)+'</span>':'')+'</a>';}
+  function show(){var raw=q.value.trim().toLowerCase().replace(/\$/g,""),w=raw.split(/\s+/).filter(Boolean),html="";
+    if(!IDX){dd.innerHTML='<div class="se">Loading...</div>';open();return;}
+    if(!raw){html='<div class="sg">Photonics ETFs</div>'+IDX.filter(function(e){return e.g==="ETF";}).map(function(e){return row(e,[]);}).join("")+'<div class="sg">Popular</div>'+IDX.filter(function(e){return e.g==="Guide";}).slice(0,3).concat(IDX.filter(function(e){return e.g==="Page";}).slice(1,4)).map(function(e){return row(e,[]);}).join("");}
+    else{var r=IDX.map(function(e){return [score(e,raw,w),e];}).filter(function(x){return x[0]>0;}).sort(function(a,b){return b[0]-a[0];});var cmpCap=/\bvs?\b/.test(raw)||w.length>1?8:2,cc=0;r=r.filter(function(x){if(x[1].g!=="Compare")return true;return ++cc<=cmpCap;}).slice(0,9);
+      html=r.length?r.map(function(x){return row(x[1],w);}).join(""):'<div class="se">No matches for "'+h(q.value.trim())+'". Try a ticker like LYTE, a stock like Lumentum or a topic like fees.</div>';}
+    dd.innerHTML=html;items=[].slice.call(dd.querySelectorAll("a"));sel=raw&&items.length?0:-1;mark();open();}
+  function mark(){items.forEach(function(a,i){a.classList.toggle("on",i===sel);});if(sel>-1&&items[sel])items[sel].scrollIntoView({block:"nearest"});}
+  function open(){dd.hidden=false;q.setAttribute("aria-expanded","true");}
+  function close(){dd.hidden=true;q.setAttribute("aria-expanded","false");}
+  function refresh(){load().then(function(){if(D.activeElement===q)show();});if(!IDX)show();}
+  q.addEventListener("focus",refresh);q.addEventListener("input",refresh);
+  q.addEventListener("keydown",function(e){if(e.key==="ArrowDown"){e.preventDefault();if(items.length){sel=(sel+1)%items.length;mark();}}
+    else if(e.key==="ArrowUp"){e.preventDefault();if(items.length){sel=(sel-1+items.length)%items.length;mark();}}
+    else if(e.key==="Enter"){e.preventDefault();var a=items[sel>-1?sel:0];if(a&&q.value.trim())go(a);}
+    else if(e.key==="Escape"){close();q.blur();}});
+  function go(a){ga("site_search_click",{search_term:q.value.trim().slice(0,60),result:a.getAttribute("href")});location.href=a.getAttribute("href");close();}
+  dd.addEventListener("mousedown",function(e){e.preventDefault();});
+  dd.addEventListener("click",function(e){var a=e.target.closest("a");if(a){e.preventDefault();go(a);}});
+  q.form&&q.form.addEventListener("submit",function(e){e.preventDefault();});
+  D.addEventListener("click",function(e){if(!e.target.closest(".hsearch"))close();});
+  D.addEventListener("keydown",function(e){if(e.key==="/"&&!/input|textarea|select/i.test((D.activeElement||{}).tagName||"")){e.preventDefault();q.focus();}});
+})();
 /* reveal */
 setTimeout(function(){D.querySelectorAll(".rv").forEach(function(el){el.classList.add("seen");});},2500);
 if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("seen");io.unobserve(e.target);}});},{threshold:.1,rootMargin:"0px 0px -40px 0px"});D.querySelectorAll(".rv").forEach(function(el){io.observe(el);});}
