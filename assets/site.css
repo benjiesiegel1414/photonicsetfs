@@ -435,3 +435,9 @@ nav.main a.navcta:hover{color:var(--void);box-shadow:0 0 22px rgba(0,212,232,.4)
 @media (max-width:760px){#burger{display:block}h1{font-size:clamp(30px,8.4vw,42px)}.hbtns .btn{flex:1;text-align:center}.slot{flex-direction:column;align-items:flex-start}.pnav{grid-template-columns:1fr}.pnav a:last-child{text-align:left}}
 @media (max-width:560px){.fgrid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}.band-line,.in-beam{opacity:.9}#fanLabels text{opacity:.82}#fibers{display:none}}
+/* condensed hero */
+.hero{min-height:0;align-items:flex-start;padding:clamp(20px,2.6vw,32px) 0 clamp(24px,3vw,36px)}
+.scrollcue{display:none}
+.prism-svg{max-height:min(44svh,380px)}
+.hero h1{font-size:clamp(32px,4.1vw,54px)}
+@media (max-width:860px){.hero{padding:16px 0 24px}.eyebrow{margin-bottom:12px}.prism-svg{max-height:200px}}
