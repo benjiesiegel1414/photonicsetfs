@@ -1,0 +1,218 @@
+[
+ [
+  "Active ETF",
+  "A fund where a portfolio manager picks the holdings and sizes them, instead of following an index. Most photonics ETFs are active.",
+  [
+   "How photonics ETFs differ",
+   "/photonics-etf-differences"
+  ]
+ ],
+ [
+  "AUM (assets under management)",
+  "The total market value of everything a fund holds. Bigger funds usually trade with tighter spreads.",
+  [
+   "See AUM for every fund",
+   "/#rankings"
+  ]
+ ],
+ [
+  "Bid-ask spread",
+  "The gap between the price buyers are offering and the price sellers are asking. Small, new ETFs often have wider spreads, which is a hidden cost when you trade."
+ ],
+ [
+  "Co-packaged optics (CPO)",
+  "A design that moves the optical engine out of a plug-in module and puts it right next to the switch chip, shortening the electrical path to cut power use and signal loss.",
+  [
+   "Co-packaged optics explained",
+   "/co-packaged-optics-explained"
+  ]
+ ],
+ [
+  "Coherent optics",
+  "A long-distance optical transmission method that encodes data in the phase and amplitude of light, used to link data centers and cities."
+ ],
+ [
+  "Continuous-wave (CW) laser",
+  "A laser that emits a steady beam. In silicon photonics modules, a CW laser provides the light and a separate modulator adds the data."
+ ],
+ [
+  "Datacom",
+  "Optical links inside and between data centers, as opposed to telecom links run by phone and cable carriers."
+ ],
+ [
+  "Daily reset",
+  "How leveraged ETFs work: they rebalance every day to hit a multiple of that single day's move, which makes longer-term returns drift from the simple multiple.",
+  [
+   "See the EUVX profile",
+   "/etf/euvx"
+  ]
+ ],
+ [
+  "Directed energy",
+  "Defense systems that use high-energy lasers to disable targets such as drones."
+ ],
+ [
+  "DSP (digital signal processor)",
+  "A chip inside an optical module that cleans up and retimes the signal. It is one of the most power-hungry parts of a transceiver."
+ ],
+ [
+  "EML (electro-absorption modulated laser)",
+  "A laser chip with a built-in modulator, widely used in high-speed data center transceivers. Supply has been tight during the AI buildout."
+ ],
+ [
+  "EUV lithography",
+  "Extreme ultraviolet lithography: printing chip patterns with 13.5-nanometer light. ASML is the only company that makes the machines.",
+  [
+   "See the EUV fund",
+   "/etf/euv"
+  ]
+ ],
+ [
+  "Expense ratio",
+  "The yearly fee a fund charges, shown as a percent of your investment. A 0.75% expense ratio costs $75 a year on $10,000.",
+  [
+   "Compare fees",
+   "/#rankings"
+  ]
+ ],
+ [
+  "Fiber optics",
+  "Thin strands of glass that carry data as pulses of light over long distances with very little loss."
+ ],
+ [
+  "Hyperscaler",
+  "One of the giant cloud companies, such as Amazon, Microsoft, Alphabet and Meta, whose data center spending drives most demand for optical components."
+ ],
+ [
+  "Indium phosphide (InP)",
+  "A compound semiconductor material used to make the lasers and detectors in optical communications. Silicon cannot efficiently produce light, so InP supplies it."
+ ],
+ [
+  "Index ETF",
+  "A fund that follows a published rulebook instead of a manager's picks. PHOX and PRAM are the index funds on our list.",
+  [
+   "See PHOX",
+   "/etf/phox"
+  ]
+ ],
+ [
+  "Interconnect",
+  "Any link that moves data between chips, servers or racks. Optical interconnects do it with light instead of copper."
+ ],
+ [
+  "Laser",
+  "A device that produces a narrow, intense beam of light of a single color. Lasers are the light source for nearly everything in photonics."
+ ],
+ [
+  "Leveraged ETF",
+  "A fund that uses swaps or other derivatives to target a multiple, such as 2x, of an index or fund's daily return.",
+  [
+   "How photonics ETFs differ",
+   "/photonics-etf-differences"
+  ]
+ ],
+ [
+  "LiDAR",
+  "Light detection and ranging: measuring distance by timing laser pulses. Used in vehicles, robots and mapping."
+ ],
+ [
+  "Linear pluggable optics (LPO)",
+  "A transceiver design that removes the DSP chip to save power, relying on the switch chip to handle the signal."
+ ],
+ [
+  "Lithography",
+  "The step in chipmaking that uses light to print circuit patterns onto silicon wafers."
+ ],
+ [
+  "NAV (net asset value)",
+  "The per-share value of what an ETF holds. An ETF's market price can trade slightly above or below its NAV."
+ ],
+ [
+  "Non-diversified fund",
+  "A legal label for a fund allowed to put large shares of its assets into a few holdings. Most photonics ETFs carry it."
+ ],
+ [
+  "Optical circuit switch (OCS)",
+  "A switch that routes light directly from one fiber to another without converting it to an electrical signal."
+ ],
+ [
+  "Optical transceiver",
+  "A small module that converts electrical signals into light and back, so data can travel over fiber. Data centers use millions of them.",
+  [
+   "What is a photonics ETF?",
+   "/what-is-a-photonics-etf"
+  ]
+ ],
+ [
+  "Photonic integrated circuit (PIC)",
+  "A chip that puts several optical parts, such as lasers, modulators and detectors, on a single piece of material."
+ ],
+ [
+  "Photonics",
+  "The science and industry of generating, guiding and detecting light. It covers lasers, fiber, optical chips, sensors and lithography.",
+  [
+   "What is a photonics ETF?",
+   "/what-is-a-photonics-etf"
+  ]
+ ],
+ [
+  "Pluggable optics",
+  "Transceiver modules that plug into the front of a switch and can be swapped out. The standard design in data centers today."
+ ],
+ [
+  "Private holdings",
+  "Shares of companies that do not trade on a stock exchange. A few photonics ETFs hold some, valued by estimate.",
+  [
+   "Photonics ETF risks",
+   "/photonics-etf-risks"
+  ]
+ ],
+ [
+  "Pure play",
+  "A company that gets most of its revenue, often defined as at least 50%, from a single theme such as photonics."
+ ],
+ [
+  "Put credit spread",
+  "An options trade that sells one put and buys a cheaper, lower-strike put. It collects income up front and has a known maximum loss.",
+  [
+   "Photonics income ETFs",
+   "/photonics-income-etfs"
+  ]
+ ],
+ [
+  "Return of capital",
+  "Part of a fund's distribution that is your own money coming back instead of income or gains. It lowers your cost basis.",
+  [
+   "Photonics income ETFs",
+   "/photonics-income-etfs"
+  ]
+ ],
+ [
+  "Silicon photonics",
+  "Building optical components on silicon wafers with chipmaking tools, which allows high volumes and tight integration with electronics."
+ ],
+ [
+  "Special purpose vehicle (SPV)",
+  "A separate legal entity set up to hold a single investment, often used to give funds exposure to a private company."
+ ],
+ [
+  "Thematic ETF",
+  "A fund built around a single idea or technology instead of a broad market index. Every fund on this site is thematic."
+ ],
+ [
+  "Total return swap",
+  "A contract with a bank that pays a fund the return of a stock or index without the fund owning it. It adds counterparty risk.",
+  [
+   "Photonics ETF risks",
+   "/photonics-etf-risks"
+  ]
+ ],
+ [
+  "UCITS ETF",
+  "A fund built under European Union rules and sold to investors in Europe and the UK. Europe has its own photonics UCITS ETF."
+ ],
+ [
+  "Wavelength",
+  "The color of light, measured in nanometers. Different wavelengths can carry separate data streams down the same fiber."
+ ]
+]
